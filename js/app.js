@@ -47,6 +47,7 @@
 
             cart.insertBefore(cartItem, total);
             alert('gang')
+            showTotals();
 
 
                 // console.log(e.target.dataset.goods);
@@ -65,4 +66,9 @@
             // }
         })
     })
-})()
+    const showTotals = () =>{
+        const total = [];
+        const items = document.querySelectorAll('cart-item-price');
+
+    }
+})();
