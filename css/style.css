@@ -91,6 +91,9 @@ body {
   width: 0;
   overflow: hidden;
 }
+.hide{
+  display: none;
+}
 .show-cart {
   width: 18rem;
   padding: 2rem 1.5rem;

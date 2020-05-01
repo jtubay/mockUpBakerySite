@@ -8,8 +8,12 @@
 })();
 (() => {
     const cartBtn = document.querySelectorAll('.store-item-icon');
+    const show = document.getElementById('testCart')
+    const shop = document.getElementById('shop');
     cartBtn.forEach((btn)=>{
         btn.addEventListener('click', (e) =>{
+            shop.classList.add('hide')
+            show.classList.remove("hide")
             
             // console.log(e.target);
             if(e.target.parentElement.classList.contains('store-item-icon')){
@@ -17,6 +21,7 @@
                 let fullPath = e.target.parentElement.previousElementSibling.src;
                 let pos = fullPath.indexOf('img') + 3;
                 let partPath = fullPath.slice(pos);
+                
 
                 const item = {};
                 item.img = `img-cart${partPath}`;
@@ -68,7 +73,26 @@
     })
     const showTotals = () =>{
         const total = [];
-        const items = document.querySelectorAll('cart-item-price');
+         const items = document.querySelectorAll('.cart-item-price');
+        // const items = [...document.getElementsByClassName('cart-item-price')];
+        for(let i = 0; i < items.length; i++){
+            total.push(parseFloat(items[i].textContent))
+        }
+
+        // items.forEach((item)=>{
+        //     total.push(parseFloat(item.textContent))
+        // })
+
+        const totalMoney = total.reduce((total, item) => {
+            total += item;
+            return total
+        },0)
+        const finalMoney = totalMoney.toFixed(2);
+        console.log(finalMoney)
+
+        document.getElementById('cart-total').textContent = finalMoney;
+        document.querySelector('.item-total').textContent = finalMoney;
+        document.getElementById('item-count').textContent = total.length;
 
     }
 })();
