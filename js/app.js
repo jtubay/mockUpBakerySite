@@ -20,6 +20,11 @@
 
                 const item = {};
                 item.img = `img-cart${partPath}`;
+                let name = e.target.parentElement.parentElement.nextElementSibling.children[0].children[0].textContent;
+                item.name = name;
+                console.log(item)
+
+                // console.log(e.target.dataset.goods);
 
 
             }
