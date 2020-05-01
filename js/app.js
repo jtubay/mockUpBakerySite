@@ -10,8 +10,17 @@
     const cartBtn = document.querySelectorAll('.store-item-icon');
     cartBtn.forEach((btn)=>{
         btn.addEventListener('click', (e) =>{
+            
             // console.log(e.target);
-            if(e.target.parentElement.classList('store-item-icon')){
+            if(e.target.parentElement.classList.contains('store-item-icon')){
+                // console.log(e.target.parentElement.previousElementSibling)
+                let fullPath = e.target.parentElement.previousElementSibling.src;
+                let pos = fullPath.indexOf('img') + 3;
+                let partPath = fullPath.slice(pos);
+
+                const item = {};
+                item.img = `img-cart${partPath}`;
+
 
             }
             // const goods = e.target.getAttribute('data-goods');
